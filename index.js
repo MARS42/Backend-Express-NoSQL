@@ -1,3 +1,4 @@
+require('dotenv').config();
 const dbConfig = require('./db/config');
 const express = require('express');
 const app = express();
@@ -14,9 +15,9 @@ const start = async () =>{
         }); 
     });
 
-    app.listen(3000, () => {
+    app.listen(process.env.PORT, () => {
 
-        console.log("Running backend...");
+        console.log("Running backend... At port: " + process.env.PORT);
 
     });
 }
