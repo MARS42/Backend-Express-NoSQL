@@ -3,7 +3,7 @@ const port = process.env.PORT || 3000;
 
 const conn = async() => {
     try{
-        await mongoose.connect('mongodb+srv://broot:3549355Atlas.@3r6abd.wqjg4.mongodb.net/Backend?retryWrites=true&w=majority', {
+        await mongoose.connect(process.env.CONN, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });

@@ -17,7 +17,7 @@ const start = async () =>{
 
     app.listen(process.env.PORT, () => {
 
-        console.log("Running backend... At port: " + process.env.PORT);
+        console.log("Running backend...");
 
     });
 }
