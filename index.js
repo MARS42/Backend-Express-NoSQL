@@ -1,10 +1,14 @@
 require('dotenv').config();
+const cors = require('cors');
 const dbConfig = require('./db/config');
 const express = require('express');
 const app = express();
 
 const start = async () =>{
+    
     app.use(express.json());
+
+    app.use(cors());
 
     await dbConfig.conn();
 
@@ -14,6 +18,8 @@ const start = async () =>{
             message: 'Bienvendio backend NoSQL'
         }); 
     });
+
+    app.use(require('./routes/main-route'));
 
     app.listen(process.env.PORT, () => {
 
