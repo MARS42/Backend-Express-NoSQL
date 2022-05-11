@@ -5,7 +5,8 @@ const userSchema = Schema({
     apellido1: { type: String },
     apellido2: { type: String },
     edad: { type: Integer },
-    direccion: { type: Array }
+    direccion: { type: Array },
+    telefono : { type: Integer }
 });
 
 module.exports = model('Users', userSchema);
