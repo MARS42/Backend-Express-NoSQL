@@ -1,11 +1,9 @@
 const express = require('express');
-const { Router } = express;
+const router = express.Router();
 
 const model = require('../../models/user');
 
-const app = express();
-
-app.post('/new/user', (req, res) => {
+router.post('/new/user', (req, res) => {
     let body = req.body;
 
     let userInsert = new model({
@@ -26,7 +24,7 @@ app.post('/new/user', (req, res) => {
     });
 });
 
-app.get('/usuarios', async (req, res) => {
+router.get('/users', async (req, res) => {
     const usuarios = await model.find();
 
     res.json({
@@ -34,3 +32,6 @@ app.get('/usuarios', async (req, res) => {
         data: usuarios
     });
 });
+
+module.exports = router;
+
