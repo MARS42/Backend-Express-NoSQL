@@ -33,5 +33,15 @@ router.get('/users', async (req, res) => {
     });
 });
 
+router.get('/users/:nombre', async (req, res) => {
+    const matches = await model.find();
+
+    res.json({
+        ok: true,
+        params: req.params.nombre,
+        data: matches
+    });
+});
+
 module.exports = router;
 
