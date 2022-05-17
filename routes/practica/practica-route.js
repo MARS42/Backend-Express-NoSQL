@@ -1,4 +1,5 @@
 const express = require('express');
+const { default: mongoose } = require('mongoose');
 const router = express.Router();
 
 const model = require('../../models/practica/alumno');
@@ -32,6 +33,25 @@ router.get('/practica/alumnos', async (req, res) => {
             data: registros
         }
     );
+});
+
+router.get('/practica/alumnos/:id', async (req, res) => {
+    const id = req.params.id;
+
+    if(!mongoose.isValidObjectId(id)) {
+        res.json({
+            ok: false,
+            msg: 'Id de objeto no válida'
+        });
+        return;
+    }
+
+    const result = await model.findById(id);
+
+    res.json({
+        ok: true,
+        data: result
+    });
 });
 
 module.exports = router;
