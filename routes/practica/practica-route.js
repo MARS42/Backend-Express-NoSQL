@@ -72,5 +72,18 @@ router.delete('/practica/alumnos/delete/:id', async (req, res) => {
     });
 });
 
+router.put('/practica/alumnos/update/:id', async (req, res) => {
+    const id = req.params.id;
+    const campos = req.body;
+
+    const updated = await model.findByIdAndUpdate(id, campos, { new: true });
+
+    res.json({
+        ok: true,
+        msg: 'Alumno actualizado',
+        data: updated
+    });
+});
+
 module.exports = router;
 
