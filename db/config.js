@@ -7,7 +7,7 @@ const conn = async() => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
-        console.log("Connected to Mongo Atlas!");
+        console.log("Connected to Mongo!");
 
     } catch(error){
         //throw new Error ("Error al conectar a la BD");
